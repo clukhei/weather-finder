@@ -1,0 +1,156 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,800&display=swap');
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Montserrat";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+li{
+  /*margin:none*/
+  list-style: none;
+  text-decoration: none;
+}
+
+li > a, li > a:hover{
+  text-decoration: none;
+  color: #000;
+
+}
+
+header{
+  position: relative;
+  margin: 0 0 0 21em;
+
+}
+header li {
+  display: inline-block;
+  padding: 0em 2em 2em 2em ;
+  margin: 1em 0 0 0;
+  
+}
+
+a{
+  text-decoration: none;
+  color: black;
+  
+}
+
+nav{
+  width:100%;
+  position: absolute;
+  
+}
+
+nav li {
+  float: center;
+}
+
+.title{
+  font-size: 2em;
+  text-decoration: bold;
+
+}
+
+form{
+  position: absolute;
+  margin: 5em auto auto 35.5em;
+
+}
+.textbox{
+  border-radius: 10px;
+
+}
+.searchbtn {
+  width: 15%;
+  height: 15%;
+  margin:0 0 0 0;
+}
+
+.forecastdisplay{
+list-style: none;
+
+}
+
+/* Contact */
+h3 {
+  position: absolute;
+  margin: 2em auto 2em 21.5em;
+  text-decoration: bold;
+  
+}
+
+.smcontainer{
+  width: 100%;
+  height: 70%;
+  content: "";
+  top: 20%; 
+  position: absolute; 
+  
+}
+
+.smul{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;  
+justify-content: center;
+padding: 10em;
+}
+
+.sm {
+  padding: 0 3em;
+}
+
+
+/*about me */
+
+.myphoto{
+  width: 25%;
+  height: auto;
+  border-radius: 500px;
+  box-shadow: 6px 4px 5px 2px grey;
+
+}
+
+.aboutcontainer{
+  height: 80%;
+  top: 20%;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.paragraphme{
+  width: 40%;
+  height: auto;
+  word-wrap: normal;
+  margin: 2em 0.5em 0 10em;
+}
+
+/* styling Weather component */
+
+.weathercontainer{
+  border: 1px solid black;
+  border-radius: 10px;
+  width:30%;
+  position: absolute; 
+  top: 35%;
+  margin: 0 0 0 45em;
+}
+
+.allforecastdisplay{
+  border: 1px solid red;
+  margin: 0;
+  padding: 0;
+  
+  
+}
