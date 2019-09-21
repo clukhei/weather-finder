@@ -2,6 +2,7 @@ import React from "react";
 import Titles from "./components/Titles";
 import Form from "./components/Form";
 import Weather from "./components/Weather";
+import Today from "./components/todayweather";
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -35,7 +36,6 @@ class App extends React.Component {
             const data = await api_call.json();
             console.log(data);
             this.setState({
-                forecasts_day1: data.items[0].forecasts[0],
                 forecasts: data.items[0].forecasts,
                 error: undefined
             });
@@ -46,34 +46,24 @@ class App extends React.Component {
         }
     }
     render() {
-        const Weathers = this.state.forecasts.map((f) =>
-            <Weather
-                datedisplay={f.date}
-                hitemperature={f.temperature.high}
-                lotemperature={f.temperature.low}
-                forecast={f.forecast}
-                hihumidity={f.relative_humidity.high}
-                lohumidity={f.relative_humidity.low}
-                windspeed={f.wind.speed.high}
-                winddirection={f.wind.direction}
-                error={f.error}
-            />
-        );
-
         return (
             <BrowserRouter>
                 <div>
                     <Titles />
-
                     <Route exact path="/" render={() =>
                         <div>
-                            <div className="weathercontainer">
-                                {Weathers}
-                            </div>
-                            <div>
-                                <Form getWeather={this.getWeather} />
+                            <div className ="form">
+                                <Form getWeather={this.getWeather}/>
                                 {this.state.error && <p>{this.state.error}</p>}
                             </div>
+                            <div>
+                                <Today forecasts={this.state.forecasts}/>
+                            </div>
+                            
+                            <div className="weathercontainer">   
+                                <Weather forecasts={this.state.forecasts}/>
+                            </div>
+
                         </div>
                     }/>
                     <Route path="/about" component={About} />

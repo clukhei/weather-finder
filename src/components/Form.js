@@ -1,5 +1,7 @@
 import React from "react";
 import searchbtn from "./images/search-button.svg";
+import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
+
 
 
 
@@ -21,7 +23,7 @@ export default Form;  */
 /** no state so use stateless format below */
 
 const Form= props => (
-    <form onSubmit={props.getWeather}>
+             <form onSubmit={props.getWeather} className="form1"> 
              <input type="text" name="date" placeholder="         YYYY/MM/DD" className="textbox"/>
              <input type= "image" src = {searchbtn} className= "searchbtn" alt="get weather by date"/>
              </form>

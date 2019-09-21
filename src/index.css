@@ -58,20 +58,25 @@ nav li {
   text-decoration: bold;
 
 }
+/* styling form component**/
 
 form{
   position: absolute;
-  margin: 5em auto auto 35.5em;
-
+  margin: 7em auto auto 35.5em;
+  border: 1px solid black;
+  display: flex;
 }
+
 .textbox{
   border-radius: 10px;
 
 }
 .searchbtn {
-  width: 15%;
-  height: 15%;
+  width: 10%;
+  height: 10%;
   margin:0 0 0 0;
+  border: 1px solid black;
+  border-radius: 50%;
 }
 
 .forecastdisplay{
@@ -141,16 +146,35 @@ padding: 10em;
 .weathercontainer{
   border: 1px solid black;
   border-radius: 10px;
-  width:30%;
+  width:40%;
+  height: auto;
   position: absolute; 
   top: 35%;
-  margin: 0 0 0 50em;
+  margin: 0 0 0 42.5em;
+}
+
+.table{
+  margin: 0;
+}
+
+.col4{
+  width: 20%;
+  font-size: 25px;
+}
+
+.col3{
+width: 40%;
+font-size: 15px;
+}
+
+.col2{
+  width: 20%;
+  font-size: 15px;
 }
 
 .allforecastdisplay{
-  border: 1px solid red;
   margin: 0;
-  padding: 0;
-  
+  padding: 0; 
   
 }
+
