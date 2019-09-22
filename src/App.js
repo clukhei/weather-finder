@@ -11,6 +11,7 @@ import Contact from "./components/Contact";
 class App extends React.Component {
     state = {
         forecasts: [],
+        selectedForecast: null,
         error: undefined
     }
     async componentDidMount() {
@@ -23,6 +24,7 @@ class App extends React.Component {
         const data = await api_call.json();
         this.setState({
             forecasts: data.items[0].forecasts,
+            selectedForecast: data.items[0].forecasts[0],
             error: undefined
         });
     }
@@ -35,10 +37,17 @@ class App extends React.Component {
             const api_call = await fetch(`https://api.data.gov.sg/v1/environment/4-day-weather-forecast?date_time=${date}T00:00:00`);
             const data = await api_call.json();
             console.log(data);
-            this.setState({
-                forecasts: data.items[0].forecasts,
-                error: undefined
-            });
+            if (data.items && data.items[0].forecasts) {
+                this.setState({
+                    forecasts: data.items[0].forecasts,
+                    selectedForecast: data.items[0].forecasts[0],
+                    error: undefined
+                });
+            } else {
+                this.setState({
+                    error: "Can't see the future nor the past"
+                });
+            }
         } else {
             this.setState({
                 error: "Please enter the value"
@@ -46,26 +55,26 @@ class App extends React.Component {
         }
     }
     render() {
+        console.log(this.state);
         return (
             <BrowserRouter>
                 <div>
                     <Titles />
                     <Route exact path="/" render={() =>
                         <div>
-                            <div className ="form">
-                                <Form getWeather={this.getWeather}/>
+                            <div className="form">
+                                <Form getWeather={this.getWeather} />
                                 {this.state.error && <p>{this.state.error}</p>}
                             </div>
                             <div>
-                                <Today forecasts={this.state.forecasts}/>
+                                <Today selectedForecast={this.state.selectedForecast} />
                             </div>
-                            
-                            <div className="weathercontainer">   
-                                <Weather forecasts={this.state.forecasts}/>
+                            <div className="weathercontainer">
+                                <Weather forecasts={this.state.forecasts} />
                             </div>
 
                         </div>
-                    }/>
+                    } />
                     <Route path="/about" component={About} />
                     <Route path="/contact" component={Contact} />
                 </div>
