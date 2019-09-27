@@ -41,6 +41,7 @@ class App extends React.Component {
                 this.setState({
                     forecasts: data.items[0].forecasts,
                     selectedForecast: data.items[0].forecasts[0],
+            
                     error: undefined
                 });
             } else {
@@ -62,12 +63,12 @@ class App extends React.Component {
                     <Titles />
                     <Route exact path="/" render={() =>
                         <div>
-                            <div className="form">
+                            <div className="form1">
                                 <Form getWeather={this.getWeather} />
                                 {this.state.error && <p>{this.state.error}</p>}
                             </div>
                             <div>
-                                <Today selectedForecast={this.state.selectedForecast} />
+                                <Today selectedForecast={this.state.selectedForecast}/>   
                             </div>
                             <div className="weathercontainer">
                                 <Weather forecasts={this.state.forecasts} />
@@ -82,6 +83,5 @@ class App extends React.Component {
         );
     }
 };
-
 
 export default App;

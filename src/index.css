@@ -6,12 +6,14 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Montserrat";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+ 
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 
 li{
   /*margin:none*/
@@ -63,7 +65,6 @@ nav li {
 form{
   position: absolute;
   margin: 7em auto auto 35.5em;
-  border: 1px solid black;
   display: flex;
 }
 
@@ -79,10 +80,12 @@ form{
   border-radius: 50%;
 }
 
-.forecastdisplay{
-list-style: none;
-
+.form1 > p {
+  position: absolute; 
+  margin: 9.5em auto auto 37em;
+  color: red;
 }
+
 
 /* Contact */
 h3 {
@@ -144,13 +147,14 @@ padding: 10em;
 /* styling Weather component */
 
 .weathercontainer{
-  border: 1px solid black;
-  border-radius: 10px;
+  border: 3px solid grey;
+  box-shadow: 5px 10px #D6D6D6;
+  border-radius: 20px;
   width:40%;
   height: auto;
   position: absolute; 
   top: 30%;
-  margin: 0 0 0 42.5em;
+  margin: 0 0 0 45em;
 }
 
 .table{
@@ -182,3 +186,57 @@ font-size: 15px;
   
 }
 
+/* styling todayweather component **/
+
+
+.today-container{
+  border: 3px solid black;
+  box-shadow: 5px 10px grey;
+  position: absolute;
+  top: 28%;
+  width: 35%;
+  border-radius: 20px;
+  margin: 0 0 0 10em;
+
+}
+
+.row1-col1{
+  width: 30%
+}
+
+.row1-col2{
+  width: 70%;
+}
+
+
+.tdyboldtxt{
+  font-weight: 700;
+  font-size: 1.5em;
+}
+
+.tdywindspd {
+ text-align: center;
+ padding: 1em 0 0 0;
+ margin: 0;
+}
+
+.tdywinddirec{
+ margin: 0;
+ padding: 1em 0 0 0;
+}
+
+
+.row2-col1 > img {
+  margin: 0;
+  padding: 0 0 0 2em;
+}
+
+.row3-col1 > img {
+  margin: 0;
+  padding: 0 0 0 2em;
+}
+
+.mainicon{
+  width: 100px;
+  height: 100px;
+}

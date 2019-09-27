@@ -1,8 +1,36 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
+const Titles = () =>
+    <div>
+        <header>
+            <nav>
+                <ul>
+                    <li className="navbtn"><Link to="/about">About me</Link></li>
+                    <li className="title"><Link to="/">Weather Finder</Link></li>
+                    <li className="navbtn"><Link to="/contact">Contact me </Link></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
 
-const Titles = ()=> (
+/* function Titles() {
+    return (
+        <div>
+            <header>
+                <nav>
+                    <ul>
+                        <li className="navbtn"><Link to="/about">About me</Link></li>
+                        <li className="title"><Link to="/">Weather Finder</Link></li>
+                        <li className="navbtn"><Link to="/contact">Contact me </Link></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+    );
+} */
+
+/* const Titles = ()=> (
     <div>
         <header>
                <nav>
@@ -15,7 +43,7 @@ const Titles = ()=> (
         </header>
         
     </div>
-);
+); */
 
 export default Titles;
 

@@ -1,22 +1,13 @@
 import React from "react";
-import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
+import { MDBTable, MDBTableBody } from 'mdbreact';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import HazeImg from  "./images/038-fog.svg";
-import ShowerImg from "./images/042-rain.svg";
+import mapImage from "./MapImages"
 
 const Weather = props => {
    const weatherRows = props.forecasts
-      .map(f => {
-         if (f.forecast.toLowerCase().includes("haz")) {
-            f.image = HazeImg
-         } else if (f.forecast.toLowerCase().includes("shower")) {
-            f.image = ShowerImg
-         }
-         return f;
-      })
       .map(f =>
          <tr className="allforecastdisplay">
-            <td className="col1"><img src={f.image} /></td>
+            <td className="col1"><img src={mapImage(f.forecast)} /></td>
             <td className="col2"><p>{f.date}</p></td>
             <td className="col3"><p>{f.forecast}</p></td>
             <td className="col4">{f.temperature.high && f.temperature.low && <p> {f.temperature.high}° / {f.temperature.low}°</p>}</td>
@@ -30,6 +21,7 @@ const Weather = props => {
       </MDBTable>
    );
 }
+
 export default Weather;
 
 
