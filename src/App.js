@@ -31,7 +31,7 @@ class App extends React.Component {
     getWeather = async (e) => {
         e.preventDefault();
         const date = e.target.elements.date.value;
-        //const country = e.target.elements.country.value;
+       
 
         if (date) {
             const api_call = await fetch(`https://api.data.gov.sg/v1/environment/4-day-weather-forecast?date_time=${date}T00:00:00`);

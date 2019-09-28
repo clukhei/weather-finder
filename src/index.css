@@ -6,6 +6,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Montserrat";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: static;
+  
  
 }
 
@@ -59,6 +61,13 @@ nav li {
   font-size: 2em;
   text-decoration: bold;
 
+}
+
+.menu-hide {
+  position: absolute;
+  top: 15%;
+  left: 95%;
+  display: none;
 }
 /* styling form component**/
 
@@ -150,7 +159,7 @@ padding: 10em;
   border: 3px solid grey;
   box-shadow: 5px 10px #D6D6D6;
   border-radius: 20px;
-  width:40%;
+  max-width:40%;
   height: auto;
   position: absolute; 
   top: 30%;
@@ -184,6 +193,7 @@ font-size: 15px;
   margin: 0;
   padding: 0; 
   
+  
 }
 
 /* styling todayweather component **/
@@ -194,7 +204,7 @@ font-size: 15px;
   box-shadow: 5px 10px grey;
   position: absolute;
   top: 28%;
-  width: 35%;
+  max-width: 35%;
   border-radius: 20px;
   margin: 0 0 0 10em;
 
@@ -211,7 +221,7 @@ font-size: 15px;
 
 .tdyboldtxt{
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .tdywindspd {
@@ -240,3 +250,12 @@ font-size: 15px;
   width: 100px;
   height: 100px;
 }
+
+/* responsive design**/
+
+@media only screen and (max-width:1060px){
+  .menu-show{
+    display: block;
+  }
+}
+ 

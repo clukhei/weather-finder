@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import Ham from "./images/ham.svg";
+
 
 const Titles = () =>
     <div>
@@ -9,57 +11,19 @@ const Titles = () =>
                     <li className="navbtn"><Link to="/about">About me</Link></li>
                     <li className="title"><Link to="/">Weather Finder</Link></li>
                     <li className="navbtn"><Link to="/contact">Contact me </Link></li>
+                    <li className="menubtn"><Link to="#"><img src = {Ham} alt = "togglemenu" class ="menu-hide menu-show"/> </Link></li>
+                  
+
                 </ul>
             </nav>
         </header>
     </div>
 
-/* function Titles() {
-    return (
-        <div>
-            <header>
-                <nav>
-                    <ul>
-                        <li className="navbtn"><Link to="/about">About me</Link></li>
-                        <li className="title"><Link to="/">Weather Finder</Link></li>
-                        <li className="navbtn"><Link to="/contact">Contact me </Link></li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
-    );
-} */
 
-/* const Titles = ()=> (
-    <div>
-        <header>
-               <nav>
-            <ul>
-            <li className="navbtn"><Link to = "/about">About me</Link></li>
-            <li className="title"><Link to = "/">Weather Finder</Link></li>    
-            <li className="navbtn"><Link to = "/contact">Contact me </Link></li>
-            </ul>
-        </nav>
-        </header>
-        
-    </div>
-); */
 
 export default Titles;
 
-/**class Titles extends React.Component{
-    render() {
-        return(
-        <div>
-            <h1>Weather Finder</h1>
-            <p>Find out temperature, conditions and more...</p>
-        </div>
-        );
-    }
-} ;
-export default Titles;*/
 
-/** no states so use the stateless form like below */
 
 
 
