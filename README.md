@@ -1,3 +1,6 @@
+Techladies bootcamp #5 technical task: Weather-app using ReactJS and public API provided by NEA, Singapore 
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
