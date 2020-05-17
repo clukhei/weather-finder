@@ -1,14 +1,102 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Titles from "./components/Titles";
 import Form from "./components/Form";
 import Weather from "./components/Weather";
 import Today from "./components/todayweather";
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import About from "./components/About";
 import Contact from "./components/Contact";
+const initialForecast = {
+  forecasts: [],
+  selectedForecast: null,
+  error: undefined,
+};
 
+function App() {
+  const [forecast, setForecast] = useState(initialForecast);
+  const [apiData, setApiDate] = useState([]);
+  //today's date
+  let now = new Date();
 
-class App extends React.Component {
+  const [date, setDate] = useState(now);
+  const formatDate = (date) => {
+    const day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+    const month =
+      date.getMonth() + 1 < 10
+        ? "0" + (date.getMonth() + 1)
+        : date.getMonth() + 1;
+    const year = date.getFullYear();
+    const todayDate = year + "-" + month + "-" + day;
+    return todayDate;
+  };
+  console.log(date);
+  const fetchForecast = async () => {
+    try {
+      const api_call = await fetch(
+        `https://api.data.gov.sg/v1/environment/4-day-weather-forecast?date_time=${formatDate(
+          date
+        )}T00:00:00`
+      );
+      if (api_call.ok) {
+        const data = await api_call.json();
+        return data;
+      }
+      throw new Error("Request failed!");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchForecast().then((data) => {
+      if (data.items && data.items[0].forecasts) {
+        setForecast({
+          forecasts: data.items[0].forecasts,
+          selectedForecast: data.items[0].forecasts[0],
+        });
+      } else {
+        setForecast({
+          error: "Can't see the future nor the past",
+        });
+      }
+    });
+  }, [date]);
+
+  console.log(forecast);
+
+  return (
+    <BrowserRouter>
+      <div>
+        <Titles />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <div>
+              <div className="form1">
+                <Form setDate={setDate} date={date} />
+                {forecast.error && <p>{forecast.error}</p>}
+              </div>
+              {forecast.selectedForecast ? (
+                <div>
+                  <Today selectedForecast={forecast.selectedForecast} />
+                </div>
+              ) : null}
+              {forecast.forecasts ? (
+                <div className="weathercontainer">
+                  <Weather forecasts={forecast.forecasts} />
+                </div>
+              ) : null}
+            </div>
+          )}
+        />
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+      </div>
+    </BrowserRouter>
+  );
+}
+/* class App extends React.Component {
     state = {
         forecasts: [],
         selectedForecast: null,
@@ -82,6 +170,6 @@ class App extends React.Component {
             </BrowserRouter>
         );
     }
-};
+}; */
 
 export default App;
